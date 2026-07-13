@@ -1,7 +1,7 @@
 /* مُولَّد بواسطة tools/upload-from-config.js — الصور من Cloudflare R2. */
 window.GAME_CONFIG = {
   R2_PUBLIC_URL: "https://pub-71f12863e04a4cebbbe21aa7f291f0ec.r2.dev/guess_game",
-  IMG_VERSION: 6,
+  IMG_VERSION: 7,
 
   CATEGORIES: [
     {
@@ -126,6 +126,31 @@ window.GAME_CONFIG = {
         { n: 18, name: "عرعر" },
         { n: 19, name: "سكاكا" },
         { n: 20, name: "الباحة" }
+      ]
+    },
+    {
+      key: "sport", labelAr: "رياضة", emoji: "🏅", ext: "jpg",
+      images: [
+        { n: 1, name: "كرة القدم" },
+        { n: 2, name: "الكريكيت" },
+        { n: 3, name: "الهوكي" },
+        { n: 4, name: "التنس" },
+        { n: 5, name: "الكرة الطائرة" },
+        { n: 6, name: "تنس الطاولة" },
+        { n: 7, name: "كرة السلة" },
+        { n: 8, name: "كرة القدم الأمريكية" },
+        { n: 9, name: "البيسبول" },
+        { n: 10, name: "الرغبي" },
+        { n: 11, name: "الغولف" },
+        { n: 12, name: "ألعاب القوى" },
+        { n: 13, name: "الملاكمة" },
+        { n: 14, name: "رياضة السيارات" },
+        { n: 15, name: "ركوب الدراجات" },
+        { n: 16, name: "السباحة" },
+        { n: 17, name: "الريشة الطائرة" },
+        { n: 18, name: "كرة اليد" },
+        { n: 19, name: "هوكي الجليد" },
+        { n: 20, name: "المصارعة" }
       ]
     }
   ]

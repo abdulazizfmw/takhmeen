@@ -138,5 +138,30 @@ export const CATEGORIES = [
       { name: "سكاكا", queries: [wiki("en", "Sakakah"), search("Sakaka city")] },
       { name: "الباحة", queries: [wiki("en", "Al Bahah"), search("Al Bahah city")] }
     ]
+  },
+  {
+    key: "sport", labelAr: "رياضة", emoji: "🏅", ext: "jpg",
+    items: [
+      { name: "كرة القدم", queries: [wiki("en", "Association football"), search("Football soccer match player kicking")] },
+      { name: "الكريكيت", queries: [wiki("en", "Cricket"), search("Cricket batsman match")] },
+      { name: "الهوكي", queries: [wiki("en", "Field hockey"), search("Field hockey players match")] },
+      { name: "التنس", queries: [wiki("en", "Tennis"), search("Tennis player serving court")] },
+      { name: "الكرة الطائرة", queries: [wiki("en", "Volleyball"), search("Volleyball players spike net")] },
+      { name: "تنس الطاولة", queries: [wiki("en", "Table tennis"), search("Table tennis player match")] },
+      { name: "كرة السلة", queries: [wiki("en", "Basketball"), search("Basketball player game hoop")] },
+      { name: "كرة القدم الأمريكية", queries: [wiki("en", "American football"), search("American football game players")] },
+      { name: "البيسبول", queries: [wiki("en", "Baseball"), search("Baseball batter pitch game")] },
+      { name: "الرغبي", queries: [file("ST vs Harlequins - Thierry Dusautoir tackles Nick Evans.jpg"), wiki("en", "Rugby union"), search("Rugby match tackle")] },
+      { name: "الغولف", queries: [wiki("en", "Golf"), search("Golfer swing golf course")] },
+      { name: "ألعاب القوى", queries: [wiki("en", "Sport of athletics"), search("Athletics track running race")] },
+      { name: "الملاكمة", queries: [wiki("en", "Boxing"), search("Boxing match boxers ring gloves")] },
+      { name: "رياضة السيارات", queries: [wiki("en", "Motorsport"), search("Formula One racing car circuit")] },
+      { name: "ركوب الدراجات", queries: [wiki("en", "Road bicycle racing"), search("Road cycling race cyclists")] },
+      { name: "السباحة", queries: [wiki("en", "Swimming (sport)"), search("Swimmer swimming race pool")] },
+      { name: "الريشة الطائرة", queries: [wiki("en", "Badminton"), search("Badminton player shuttlecock court")] },
+      { name: "كرة اليد", queries: [file("Andreas Nilsson throwing 1 DKB Handball Bundesliga HSG Wetzlar vs HSV Hamburg 2014-02 08.jpg"), wiki("en", "Handball"), search("Handball throw")] },
+      { name: "هوكي الجليد", queries: [wiki("en", "Ice hockey"), search("Ice hockey players match rink")] },
+      { name: "المصارعة", queries: [wiki("en", "Wrestling"), search("Freestyle wrestling wrestlers mat")] }
+    ]
   }
 ];
