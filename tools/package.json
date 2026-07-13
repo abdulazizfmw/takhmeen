@@ -1,0 +1,14 @@
+{
+  "name": "guess-game-tools",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "جلب صور حرة من ويكيميديا/ويكيبيديا ورفعها إلى Cloudflare R2 وتوليد config.js",
+  "scripts": {
+    "start": "node fetch-and-upload.js"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.637.0",
+    "sharp": "^0.33.5"
+  }
+}

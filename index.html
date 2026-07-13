@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#7c5cff" />
+  <title>لعبة التخمين بالصور</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎯</text></svg>" />
+</head>
+<body>
+  <div class="bg-orbs" aria-hidden="true">
+    <span class="orb orb-1"></span>
+    <span class="orb orb-2"></span>
+    <span class="orb orb-3"></span>
+    <span class="orb orb-4"></span>
+  </div>
+
+  <!-- ===== شاشة اختيار التصنيف ===== -->
+  <main id="category-screen" class="screen is-active">
+    <div class="status-bar" aria-label="حالة اللاعب">
+      <span class="level-chip" id="level-chip">
+        <span class="lvl-emoji">🌱</span><span id="level-num">1</span>
+      </span>
+      <div class="xp-wrap">
+        <div class="xp-bar"><span class="xp-fill" id="home-xp-fill"></span></div>
+        <span class="xp-text" id="home-xp-text">0 / 100 XP</span>
+      </div>
+      <span class="streak-best" title="أفضل سلسلة">🔥 <span id="best-streak">0</span></span>
+      <button id="trophy-btn" class="trophy-btn" type="button" aria-label="الأوسمة">🏆</button>
+    </div>
+
+    <header class="home-header">
+      <h1 class="title">
+        <span class="title-emoji">🎯</span>
+        لعبة التخمين
+      </h1>
+      <p class="subtitle">اختر تصنيفاً، تظهر لك صورة عشوائية… خمّن ثم اكشف الإجابة!</p>
+    </header>
+
+    <section id="category-grid" class="category-grid" aria-label="التصنيفات"></section>
+
+    <footer class="home-footer">
+      <span class="hint">كلما تابعت الإجابات الصحيحة، كبرت سلسلتك 🔥 وارتفع مضاعف نقاطك!</span>
+    </footer>
+  </main>
+
+  <!-- ===== شاشة اللعب ===== -->
+  <main id="game-screen" class="screen" aria-hidden="true">
+    <header class="game-header">
+      <button id="back-btn" class="icon-btn" type="button" aria-label="رجوع">
+        <span aria-hidden="true">›</span>
+      </button>
+      <div class="game-title">
+        <span id="game-cat-emoji" class="game-cat-emoji">🦁</span>
+        <span id="game-cat-name">حيوان</span>
+      </div>
+      <div class="hud">
+        <span class="streak-flame" id="streak-flame" title="السلسلة الحالية">
+          <span class="flame">🔥</span><span id="streak-count">0</span>
+        </span>
+        <span class="combo-badge" id="combo-badge" hidden>×2</span>
+      </div>
+    </header>
+
+    <div class="game-substrip">
+      <span class="level-mini" id="level-mini">Lv 1</span>
+      <div class="xp-wrap">
+        <div class="xp-bar"><span class="xp-fill" id="game-xp-fill"></span></div>
+      </div>
+      <div class="session-pills">
+        <span class="session-pill ok" id="score-correct" title="صحيح">✓ 0</span>
+        <span class="session-pill no" id="score-wrong" title="خطأ">✗ 0</span>
+      </div>
+    </div>
+
+    <section class="stage">
+      <div id="image-frame" class="image-frame">
+        <div id="game-image-bg" class="game-image-bg" aria-hidden="true"></div>
+        <div id="image-skeleton" class="image-skeleton"></div>
+        <img id="game-image" class="game-image" alt="صورة للتخمين" />
+        <div id="shuffle-overlay" class="shuffle-overlay" hidden aria-hidden="true">
+          <div class="shuffle-emoji" id="shuffle-emoji">🔍</div>
+          <div class="shuffle-dots"><span></span><span></span><span></span></div>
+          <div class="shuffle-text">نبحث عن صورة…</div>
+        </div>
+        <div id="image-error" class="image-error" hidden>
+          <span class="image-error-emoji">🖼️</span>
+          <p>تعذّر تحميل الصورة</p>
+          <button id="retry-btn" class="btn btn-ghost" type="button">إعادة المحاولة</button>
+        </div>
+      </div>
+
+      <div id="answer-reveal" class="answer-reveal" aria-live="polite">
+        <span class="answer-label">الإجابة</span>
+        <span id="answer-text" class="answer-text"></span>
+      </div>
+    </section>
+
+    <div class="controls">
+      <!-- المرحلة الأولى: كشف الإجابة -->
+      <button id="reveal-btn" class="btn btn-primary btn-lg" type="button">
+        👁️ اكشف الإجابة
+      </button>
+
+      <!-- المرحلة الثانية: التقييم الذاتي -->
+      <div id="verdict-controls" class="verdict-controls" hidden>
+        <button id="wrong-btn" class="btn btn-danger" type="button">✗ خطأ</button>
+        <button id="correct-btn" class="btn btn-success" type="button">✓ صح</button>
+      </div>
+
+      <div class="controls-secondary">
+        <button id="next-btn" class="btn btn-ghost" type="button">↻ التالي</button>
+        <button id="reset-btn" class="btn btn-ghost btn-muted" type="button">إعادة الجلسة</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- ===== طبقة رفع المستوى ===== -->
+  <div id="levelup" class="levelup" hidden aria-hidden="true">
+    <div class="levelup-card">
+      <span class="levelup-emoji" id="levelup-emoji">🚀</span>
+      <div class="levelup-title" id="levelup-title">المستوى 2!</div>
+      <div class="levelup-sub">أحسنت — استمر في التخمين!</div>
+    </div>
+  </div>
+
+  <!-- ===== توست الإنجازات ===== -->
+  <div id="toast-wrap" class="toast-wrap" aria-live="polite"></div>
+
+  <!-- ===== نافذة الأوسمة ===== -->
+  <div id="badges-modal" class="modal" hidden>
+    <div class="modal-card" role="dialog" aria-label="الأوسمة">
+      <div class="modal-head">
+        <h2 class="modal-title">🏆 الأوسمة</h2>
+        <button id="badges-close" class="modal-close" type="button" aria-label="إغلاق">×</button>
+      </div>
+      <p class="modal-sub" id="badges-progress">فتحت 0 من 0</p>
+      <div id="badge-grid" class="badge-grid"></div>
+      <div class="modal-foot">
+        <button id="reset-progress" class="btn-reset-progress" type="button">تصفير كل التقدّم</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="config.js?v=15"></script>
+  <script src="app.js?v=15"></script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+# الاعتماديات
+node_modules/
+tools/node_modules/
+
+# الأسرار — لا تُرفع أبداً
+.env
+.env.*
+*.local
+
+# ملفات مؤقتة
+tools/.cache/
+tools/downloads/
+.DS_Store
+*.log
