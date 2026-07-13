@@ -52,7 +52,7 @@ export const CATEGORIES = [
       { name: "رمان", queries: [wiki("en", "Pomegranate"), search("Pomegranate fruit")] },
       { name: "برتقال", queries: [wiki("en", "Orange (fruit)"), search("Orange fruit")] },
       { name: "كيوي", queries: [file("Kiwi aka.jpg"), wiki("en", "Kiwifruit"), search("Kiwifruit")] },
-      { name: "خوخ", queries: [wiki("en", "Peach"), search("Peach fruit")] },
+      { name: "خوخ", queries: [file("Autumn Red peaches.jpg"), wiki("en", "Peach"), search("Peach fruit")] },
       { name: "كرز", queries: [wiki("en", "Cherry"), search("Cherry fruit")] },
       { name: "أفوكادو", queries: [file("Persea americana fruit 2.JPG"), wiki("en", "Avocado"), search("Avocado fruit")] },
       { name: "تين", queries: [file("Bowl of Figs.jpg"), wiki("en", "Common fig"), search("Fig fruit")] },
@@ -61,7 +61,7 @@ export const CATEGORIES = [
       { name: "جوز الهند", queries: [file("Coconuts - single and cracked open.jpg"), wiki("en", "Coconut"), search("Coconut fruit")] },
       { name: "توت أزرق", queries: [wiki("en", "Blueberry"), search("Blueberries")] },
       { name: "كمثرى", queries: [wiki("en", "Pear"), search("Pear fruit")] },
-      { name: "بابايا", queries: [wiki("en", "Papaya"), search("Papaya fruit")] }
+      { name: "بابايا", queries: [file("Papaya - longitudinal section.jpg"), wiki("en", "Papaya"), search("Papaya fruit")] }
     ]
   },
   {

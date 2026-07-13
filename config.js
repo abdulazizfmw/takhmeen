@@ -1,7 +1,7 @@
 /* مُولَّد بواسطة tools/upload-from-config.js — الصور من Cloudflare R2. */
 window.GAME_CONFIG = {
   R2_PUBLIC_URL: "https://pub-71f12863e04a4cebbbe21aa7f291f0ec.r2.dev/guess_game",
-  IMG_VERSION: 5,
+  IMG_VERSION: 6,
 
   CATEGORIES: [
     {
