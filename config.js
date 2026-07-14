@@ -35,8 +35,8 @@ window.GAME_CONFIG = {
         { n: 26, name: "نجم البحر" },
         { n: 27, name: "فرس البحر" },
         { n: 28, name: "سرطان البحر" },
-        { n: 29, name: "حبار", url: "https://upload.wikimedia.org/wikipedia/commons/e/e1/Sepioteuthis_sepioidea_%28Caribbean_Reef_Squid%29.jpg" },
-        { n: 30, name: "فقمة", url: "https://upload.wikimedia.org/wikipedia/commons/1/16/Halichoerus_grypus_male.jpg" }
+        { n: 29, name: "حبار" },
+        { n: 30, name: "فقمة" }
       ]
     },
     {
