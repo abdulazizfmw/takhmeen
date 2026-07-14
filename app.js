@@ -210,6 +210,7 @@
   var CAT_COLORS = {
     animal: "#ff9f1c", fruit: "#ff5ea8", flag: "#4bb8ff",
     "saudi-food": "#ff7a5c", "saudi-city": "#7c5cff", sport: "#17b877",
+    vegetable: "#7cb342", transport: "#5c6bc0",
   };
 
   /* ============================================================

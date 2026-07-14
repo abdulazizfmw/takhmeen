@@ -26,7 +26,17 @@ window.GAME_CONFIG = {
         { n: 17, name: "أرنب" },
         { n: 18, name: "بومة" },
         { n: 19, name: "نسر" },
-        { n: 20, name: "دولفين" }
+        { n: 20, name: "دولفين" },
+        { n: 21, name: "قرش" },
+        { n: 22, name: "أخطبوط" },
+        { n: 23, name: "قنديل البحر" },
+        { n: 24, name: "حوت" },
+        { n: 25, name: "سلحفاة بحرية" },
+        { n: 26, name: "نجم البحر" },
+        { n: 27, name: "فرس البحر" },
+        { n: 28, name: "سرطان البحر" },
+        { n: 29, name: "حبار", url: "https://upload.wikimedia.org/wikipedia/commons/e/e1/Sepioteuthis_sepioidea_%28Caribbean_Reef_Squid%29.jpg" },
+        { n: 30, name: "فقمة", url: "https://upload.wikimedia.org/wikipedia/commons/1/16/Halichoerus_grypus_male.jpg" }
       ]
     },
     {
@@ -151,6 +161,56 @@ window.GAME_CONFIG = {
         { n: 18, name: "كرة اليد" },
         { n: 19, name: "هوكي الجليد" },
         { n: 20, name: "المصارعة" }
+      ]
+    },
+    {
+      key: "vegetable", labelAr: "خضار", emoji: "🥕", ext: "jpg",
+      images: [
+        { n: 1, name: "طماطم" },
+        { n: 2, name: "خيار" },
+        { n: 3, name: "جزر" },
+        { n: 4, name: "باذنجان" },
+        { n: 5, name: "فلفل" },
+        { n: 6, name: "بصل" },
+        { n: 7, name: "ثوم" },
+        { n: 8, name: "بطاطس" },
+        { n: 9, name: "ذرة" },
+        { n: 10, name: "بروكلي" },
+        { n: 11, name: "قرنبيط" },
+        { n: 12, name: "خس" },
+        { n: 13, name: "سبانخ" },
+        { n: 14, name: "فجل" },
+        { n: 15, name: "بازلاء" },
+        { n: 16, name: "فطر" },
+        { n: 17, name: "كوسة" },
+        { n: 18, name: "باميا" },
+        { n: 19, name: "بطاطا حلوة" },
+        { n: 20, name: "ملفوف" }
+      ]
+    },
+    {
+      key: "transport", labelAr: "وسائل النقل", emoji: "🚗", ext: "jpg",
+      images: [
+        { n: 1, name: "سيارة" },
+        { n: 2, name: "طائرة" },
+        { n: 3, name: "قطار" },
+        { n: 4, name: "سفينة" },
+        { n: 5, name: "مروحية" },
+        { n: 6, name: "دراجة نارية" },
+        { n: 7, name: "حافلة" },
+        { n: 8, name: "دراجة هوائية" },
+        { n: 9, name: "منطاد" },
+        { n: 10, name: "شاحنة" },
+        { n: 11, name: "قارب شراعي" },
+        { n: 12, name: "غواصة" },
+        { n: 13, name: "تلفريك" },
+        { n: 14, name: "تاكسي" },
+        { n: 15, name: "مترو الأنفاق" },
+        { n: 16, name: "سكوتر" },
+        { n: 17, name: "جرار" },
+        { n: 18, name: "سيارة إسعاف" },
+        { n: 19, name: "صاروخ" },
+        { n: 20, name: "ترام" }
       ]
     }
   ]

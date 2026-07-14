@@ -22,7 +22,10 @@ const UA = "Fahad3GuessGame/1.0 (educational guessing game; image asset builder)
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 const TARGETS = [
-  { key: "fruit", n: 17, name: "جوز الهند", url: "https://upload.wikimedia.org/wikipedia/commons/f/f1/Coconuts_-_single_and_cracked_open.jpg" },
+  { key: "animal", n: 27, name: "فرس البحر", url: "https://upload.wikimedia.org/wikipedia/commons/2/25/Hippocampus_hippocampus_%28on_Ascophyllum_nodosum%29.jpg" },
+  { key: "animal", n: 28, name: "سرطان البحر", url: "https://upload.wikimedia.org/wikipedia/commons/7/71/Cancer_pagurus.jpg" },
+  { key: "animal", n: 29, name: "حبار", url: "https://upload.wikimedia.org/wikipedia/commons/e/e1/Sepioteuthis_sepioidea_%28Caribbean_Reef_Squid%29.jpg" },
+  { key: "animal", n: 30, name: "فقمة", url: "https://upload.wikimedia.org/wikipedia/commons/1/16/Halichoerus_grypus_male.jpg" },
 ];
 
 const env = {

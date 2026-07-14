@@ -36,7 +36,17 @@ export const CATEGORIES = [
       { name: "أرنب", queries: [wiki("en", "European rabbit"), search("Oryctolagus cuniculus")] },
       { name: "بومة", queries: [wiki("en", "Owl"), search("Bubo bubo")] },
       { name: "نسر", queries: [wiki("en", "Bald eagle"), wiki("en", "Golden eagle")] },
-      { name: "دولفين", queries: [wiki("en", "Bottlenose dolphin"), search("Tursiops truncatus")] }
+      { name: "دولفين", queries: [wiki("en", "Bottlenose dolphin"), search("Tursiops truncatus")] },
+      { name: "قرش", queries: [wiki("en", "Great white shark"), search("Shark swimming")] },
+      { name: "أخطبوط", queries: [wiki("en", "Octopus"), search("Octopus underwater")] },
+      { name: "قنديل البحر", queries: [wiki("en", "Jellyfish"), search("Jellyfish underwater")] },
+      { name: "حوت", queries: [wiki("en", "Humpback whale"), search("Whale breaching ocean")] },
+      { name: "سلحفاة بحرية", queries: [wiki("en", "Sea turtle"), search("Sea turtle swimming")] },
+      { name: "نجم البحر", queries: [wiki("en", "Starfish"), search("Starfish sea star")] },
+      { name: "فرس البحر", queries: [wiki("en", "Seahorse"), search("Seahorse underwater")] },
+      { name: "سرطان البحر", queries: [wiki("en", "Crab"), search("Crab beach")] },
+      { name: "حبار", queries: [wiki("en", "Squid"), search("Squid underwater")] },
+      { name: "فقمة", queries: [wiki("en", "Pinniped"), search("Seal animal")] }
     ]
   },
   {
@@ -162,6 +172,56 @@ export const CATEGORIES = [
       { name: "كرة اليد", queries: [file("Andreas Nilsson throwing 1 DKB Handball Bundesliga HSG Wetzlar vs HSV Hamburg 2014-02 08.jpg"), wiki("en", "Handball"), search("Handball throw")] },
       { name: "هوكي الجليد", queries: [wiki("en", "Ice hockey"), search("Ice hockey players match rink")] },
       { name: "المصارعة", queries: [wiki("en", "Wrestling"), search("Freestyle wrestling wrestlers mat")] }
+    ]
+  },
+  {
+    key: "vegetable", labelAr: "خضار", emoji: "🥕", ext: "jpg",
+    items: [
+      { name: "طماطم", queries: [wiki("en", "Tomato"), search("Tomato fruit red")] },
+      { name: "خيار", queries: [wiki("en", "Cucumber"), search("Cucumber vegetable")] },
+      { name: "جزر", queries: [wiki("en", "Carrot"), search("Carrots vegetable")] },
+      { name: "باذنجان", queries: [wiki("en", "Eggplant"), search("Eggplant aubergine")] },
+      { name: "فلفل", queries: [wiki("en", "Bell pepper"), search("Bell pepper vegetable")] },
+      { name: "بصل", queries: [wiki("en", "Onion"), search("Onion vegetable")] },
+      { name: "ثوم", queries: [file("Garlic bulbs and cloves.jpg"), wiki("en", "Garlic"), search("Garlic bulb")] },
+      { name: "بطاطس", queries: [wiki("en", "Potato"), search("Potatoes vegetable")] },
+      { name: "ذرة", queries: [file("Liat Portal for Foodie Disorder - Fresh Corn on the Cob.jpg"), search("Corn cob maize")] },
+      { name: "بروكلي", queries: [wiki("en", "Broccoli"), search("Broccoli vegetable")] },
+      { name: "قرنبيط", queries: [wiki("en", "Cauliflower"), search("Cauliflower vegetable")] },
+      { name: "خس", queries: [wiki("en", "Lettuce"), search("Lettuce vegetable")] },
+      { name: "سبانخ", queries: [wiki("en", "Spinach"), search("Spinach leaves")] },
+      { name: "فجل", queries: [wiki("en", "Radish"), search("Radish vegetable")] },
+      { name: "بازلاء", queries: [wiki("en", "Pea"), search("Green peas pods")] },
+      { name: "فطر", queries: [wiki("en", "Edible mushroom"), search("Mushrooms button")] },
+      { name: "كوسة", queries: [wiki("en", "Zucchini"), search("Zucchini courgette")] },
+      { name: "باميا", queries: [wiki("en", "Okra"), search("Okra vegetable")] },
+      { name: "بطاطا حلوة", queries: [wiki("en", "Sweet potato"), search("Sweet potato")] },
+      { name: "ملفوف", queries: [wiki("en", "Cabbage"), search("Cabbage vegetable")] }
+    ]
+  },
+  {
+    key: "transport", labelAr: "وسائل النقل", emoji: "🚗", ext: "jpg",
+    items: [
+      { name: "سيارة", queries: [file("2013 Toyota Etios Valco E (Indonesia) front view.jpg"), wiki("en", "Car")] },
+      { name: "طائرة", queries: [search("Airliner passenger jet flying"), wiki("en", "Airliner")] },
+      { name: "قطار", queries: [search("High-speed train railway"), wiki("en", "Train")] },
+      { name: "سفينة", queries: [search("Container ship sea"), wiki("en", "Ship")] },
+      { name: "مروحية", queries: [wiki("en", "Helicopter"), search("Helicopter flying")] },
+      { name: "دراجة نارية", queries: [wiki("en", "Motorcycle"), search("Motorcycle")] },
+      { name: "حافلة", queries: [search("City bus"), wiki("en", "Bus")] },
+      { name: "دراجة هوائية", queries: [wiki("en", "Bicycle"), search("Bicycle")] },
+      { name: "منطاد", queries: [wiki("en", "Hot air balloon"), search("Hot air balloon flying")] },
+      { name: "شاحنة", queries: [search("Semi truck lorry"), wiki("en", "Truck")] },
+      { name: "قارب شراعي", queries: [file("Sailboat with spinnaker 17RM0454.jpg"), search("Sailboat sailing")] },
+      { name: "غواصة", queries: [wiki("en", "Submarine"), search("Submarine navy")] },
+      { name: "تلفريك", queries: [wiki("en", "Aerial tramway"), search("Cable car gondola mountain")] },
+      { name: "تاكسي", queries: [search("New York yellow taxi cab"), wiki("en", "Taxi")] },
+      { name: "مترو الأنفاق", queries: [search("Subway metro train platform"), wiki("en", "Rapid transit")] },
+      { name: "سكوتر", queries: [wiki("en", "Scooter (motorcycle)"), search("Vespa scooter")] },
+      { name: "جرار", queries: [wiki("en", "Tractor"), search("Farm tractor")] },
+      { name: "سيارة إسعاف", queries: [wiki("en", "Ambulance"), search("Ambulance vehicle")] },
+      { name: "صاروخ", queries: [search("Rocket launch space"), wiki("en", "Rocket")] },
+      { name: "ترام", queries: [wiki("en", "Tram"), search("Tram streetcar city")] }
     ]
   }
 ];

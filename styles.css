@@ -331,12 +331,20 @@ body {
 }
 
 /* ===== منطقة الصورة ===== */
-.stage { display: flex; flex-direction: column; gap: 14px; }
+/* المنصّة تتمدّد لملء المساحة المتاحة بين الترويسة والأزرار — فتكبر الصورة قدر الإمكان */
+.stage {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 12px;
+}
 .image-frame {
   position: relative;
+  flex: 1 1 auto;
   width: 100%;
-  aspect-ratio: 4 / 3;
-  max-height: 50vh;
+  min-height: 190px;
   margin-inline: auto;
   border-radius: var(--radius);
   overflow: hidden;
@@ -670,13 +678,44 @@ body {
   .game-image { opacity: 1; transform: none; }
 }
 
-/* ===== الجوال ===== */
+/* ===== الجوال والأجهزة اللوحية ===== */
 @media (max-width: 560px) {
   .status-bar { flex-wrap: wrap; border-radius: var(--radius-sm); }
   .xp-wrap { order: 3; flex-basis: 100%; }
+  /* أفسِح أكبر مساحة ممكنة للصورة في وضع الطول */
+  #game-screen { padding-top: 10px; padding-bottom: 14px; }
+  .game-header { margin-bottom: 8px; }
+  .game-substrip { margin-bottom: 10px; }
+  .stage { gap: 10px; }
+  .controls { margin-top: 12px; gap: 10px; }
+  .btn-lg { padding: 15px; }
+  .image-frame { border-width: 3px; }
 }
 @media (max-width: 480px) {
   .category-grid { grid-template-columns: repeat(2, 1fr); }
   .game-title { font-size: 1.05rem; }
   .streak-flame, .combo-badge { font-size: 0.9rem; padding: 5px 10px; }
+}
+
+/* ===== الوضع الأفقي على الشاشات القصيرة (جوال/لوحي landscape) =====
+   عمودان: صورة كبيرة على الجانب + الأزرار بجانبها، حتى تبقى الصورة كبيرة */
+@media (orientation: landscape) and (max-height: 600px) {
+  #game-screen.is-active {
+    display: grid;
+    grid-template-columns: 1.6fr 0.9fr;
+    grid-template-rows: auto auto minmax(0, 1fr);
+    grid-template-areas:
+      "header   header"
+      "substrip substrip"
+      "stage    controls";
+    column-gap: 16px;
+    padding-top: 8px;
+    padding-bottom: 10px;
+    min-height: 100dvh;
+  }
+  #game-screen .game-header { grid-area: header; margin-bottom: 4px; }
+  #game-screen .game-substrip { grid-area: substrip; margin-bottom: 6px; }
+  #game-screen .stage { grid-area: stage; min-height: 0; }
+  #game-screen .image-frame { height: 100%; min-height: 0; }
+  #game-screen .controls { grid-area: controls; margin-top: 0; align-self: center; }
 }
