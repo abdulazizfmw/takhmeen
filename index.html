@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="theme-color" content="#7c5cff" />
   <title>لعبة التخمين بالصور</title>
-  <link rel="stylesheet" href="styles.css?v=18" />
+  <link rel="stylesheet" href="styles.css?v=19" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎯</text></svg>" />
 </head>
 <body>
@@ -46,8 +46,26 @@
   </main>
 
   <!-- ===== شاشة اللعب ===== -->
-  <main id="game-screen" class="screen" aria-hidden="true">
-    <header class="game-header">
+  <main id="game-screen" class="screen game" aria-hidden="true">
+    <!-- الصورة تملأ كامل الشاشة (البطل) -->
+    <div id="image-frame" class="image-frame">
+      <div id="game-image-bg" class="game-image-bg" aria-hidden="true"></div>
+      <div id="image-skeleton" class="image-skeleton"></div>
+      <img id="game-image" class="game-image" alt="صورة للتخمين" />
+      <div id="shuffle-overlay" class="shuffle-overlay" hidden aria-hidden="true">
+        <div class="shuffle-emoji" id="shuffle-emoji">🔍</div>
+        <div class="shuffle-dots"><span></span><span></span><span></span></div>
+        <div class="shuffle-text">نبحث عن صورة…</div>
+      </div>
+      <div id="image-error" class="image-error" hidden>
+        <span class="image-error-emoji">🖼️</span>
+        <p>تعذّر تحميل الصورة</p>
+        <button id="retry-btn" class="btn btn-ghost" type="button">إعادة المحاولة</button>
+      </div>
+    </div>
+
+    <!-- شريط علوي عائم: رجوع + التصنيف + السلسلة/المستوى -->
+    <div class="game-topbar">
       <button id="back-btn" class="icon-btn" type="button" aria-label="رجوع">
         <span aria-hidden="true">›</span>
       </button>
@@ -60,58 +78,35 @@
           <span class="flame">🔥</span><span id="streak-count">0</span>
         </span>
         <span class="combo-badge" id="combo-badge" hidden>×2</span>
-      </div>
-    </header>
-
-    <div class="game-substrip">
-      <span class="level-mini" id="level-mini">Lv 1</span>
-      <div class="xp-wrap">
-        <div class="xp-bar"><span class="xp-fill" id="game-xp-fill"></span></div>
-      </div>
-      <div class="session-pills">
-        <span class="session-pill ok" id="score-correct" title="صحيح">✓ 0</span>
-        <span class="session-pill no" id="score-wrong" title="خطأ">✗ 0</span>
+        <span class="level-mini" id="level-mini">Lv 1</span>
       </div>
     </div>
 
-    <section class="stage">
-      <div id="image-frame" class="image-frame">
-        <div id="game-image-bg" class="game-image-bg" aria-hidden="true"></div>
-        <div id="image-skeleton" class="image-skeleton"></div>
-        <img id="game-image" class="game-image" alt="صورة للتخمين" />
-        <div id="shuffle-overlay" class="shuffle-overlay" hidden aria-hidden="true">
-          <div class="shuffle-emoji" id="shuffle-emoji">🔍</div>
-          <div class="shuffle-dots"><span></span><span></span><span></span></div>
-          <div class="shuffle-text">نبحث عن صورة…</div>
-        </div>
-        <div id="image-error" class="image-error" hidden>
-          <span class="image-error-emoji">🖼️</span>
-          <p>تعذّر تحميل الصورة</p>
-          <button id="retry-btn" class="btn btn-ghost" type="button">إعادة المحاولة</button>
-        </div>
-      </div>
-
+    <!-- لوحة سفلية عائمة: الإجابة ثم الأزرار ثم شريط الحالة -->
+    <div class="game-bottombar">
       <div id="answer-reveal" class="answer-reveal" aria-live="polite">
         <span class="answer-label">الإجابة</span>
         <span id="answer-text" class="answer-text"></span>
       </div>
-    </section>
 
-    <div class="controls">
-      <!-- المرحلة الأولى: كشف الإجابة -->
-      <button id="reveal-btn" class="btn btn-primary btn-lg" type="button">
-        👁️ اكشف الإجابة
-      </button>
-
-      <!-- المرحلة الثانية: التقييم الذاتي -->
-      <div id="verdict-controls" class="verdict-controls" hidden>
-        <button id="wrong-btn" class="btn btn-danger" type="button">✗ خطأ</button>
-        <button id="correct-btn" class="btn btn-success" type="button">✓ صح</button>
+      <div class="controls">
+        <button id="reveal-btn" class="btn btn-primary btn-lg" type="button">
+          👁️ اكشف الإجابة
+        </button>
+        <div id="verdict-controls" class="verdict-controls" hidden>
+          <button id="wrong-btn" class="btn btn-danger" type="button">✗ خطأ</button>
+          <button id="correct-btn" class="btn btn-success" type="button">✓ صح</button>
+        </div>
+        <div class="controls-secondary">
+          <button id="next-btn" class="btn btn-ghost" type="button">↻ التالي</button>
+          <button id="reset-btn" class="btn btn-ghost btn-muted" type="button">إعادة</button>
+        </div>
       </div>
 
-      <div class="controls-secondary">
-        <button id="next-btn" class="btn btn-ghost" type="button">↻ التالي</button>
-        <button id="reset-btn" class="btn btn-ghost btn-muted" type="button">إعادة الجلسة</button>
+      <div class="game-statusrow">
+        <span class="session-pill ok" id="score-correct" title="صحيح">✓ 0</span>
+        <div class="xp-wrap"><div class="xp-bar"><span class="xp-fill" id="game-xp-fill"></span></div></div>
+        <span class="session-pill no" id="score-wrong" title="خطأ">✗ 0</span>
       </div>
     </div>
   </main>
@@ -143,7 +138,7 @@
     </div>
   </div>
 
-  <script src="config.js?v=18"></script>
-  <script src="app.js?v=18"></script>
+  <script src="config.js?v=19"></script>
+  <script src="app.js?v=19"></script>
 </body>
 </html>
