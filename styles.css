@@ -719,12 +719,39 @@ body {
 .game-bottombar {
   position: absolute; bottom: 0; inset-inline: 0; z-index: 6;
   display: flex; flex-direction: column; gap: 10px;
-  padding: 52px 14px max(14px, env(safe-area-inset-bottom));
-  background: linear-gradient(to top, rgba(8, 10, 26, 0.78), rgba(8, 10, 26, 0.4) 55%, rgba(8, 10, 26, 0));
+  padding: 34px 14px max(12px, env(safe-area-inset-bottom));
+  background: linear-gradient(to top, rgba(8, 10, 26, 0.66), rgba(8, 10, 26, 0.28) 60%, rgba(8, 10, 26, 0));
 }
-.game-bottombar .controls { margin-top: 0; gap: 10px; }
+.game-bottombar .controls {
+  margin-top: 0;
+  display: flex; flex-direction: row; align-items: center; justify-content: center; gap: 16px;
+}
+.game-bottombar .verdict-controls { display: flex; gap: 16px; }
+.cbtn[hidden] { display: none; }
+.game-bottombar .verdict-controls[hidden] { display: none; }
 .game-bottombar .answer-reveal { min-height: 0; }
 .game-bottombar .answer-reveal:not(.show) { display: none; }
+
+/* أزرار أيقونية دائرية مضغوطة (تغطّي أقل من الصورة) */
+.cbtn {
+  flex: none;
+  width: 56px; height: 56px; border-radius: 50%;
+  border: none; cursor: pointer;
+  display: grid; place-items: center;
+  font-family: inherit; font-size: 1.55rem; line-height: 1; color: #fff;
+  box-shadow: 0 8px 20px rgba(8, 10, 26, 0.35);
+  transition: transform 0.15s var(--spring), filter 0.2s, background 0.2s;
+}
+.cbtn:active { transform: scale(0.9); }
+.cbtn-lg { width: 68px; height: 68px; font-size: 1.85rem; }
+.cbtn-sm { width: 44px; height: 44px; font-size: 1.15rem; }
+.cbtn-primary { background: linear-gradient(135deg, var(--grape), var(--bubble)); }
+.cbtn-success { background: linear-gradient(135deg, #16b877, #3ee0a2); }
+.cbtn-danger { background: linear-gradient(135deg, #ff5470, #ff8aa0); }
+.cbtn-ghost { background: rgba(255, 255, 255, 0.95); color: var(--ink); }
+.cbtn-ghost.cbtn-sm { background: rgba(255, 255, 255, 0.7); color: var(--ink-soft); }
+.cbtn-primary:hover, .cbtn-success:hover, .cbtn-danger:hover { filter: brightness(1.08); transform: translateY(-3px); }
+.cbtn-ghost:hover { background: #fff; transform: translateY(-3px); }
 .game-bottombar .answer-reveal.show {
   background: rgba(255, 255, 255, 0.96); border-color: transparent;
   padding: 9px 16px;
@@ -758,8 +785,9 @@ body {
 
 /* ===== الوضع الأفقي القصير: أزرار أصغر وأكثر إحكاماً ===== */
 @media (orientation: landscape) and (max-height: 480px) {
-  .game-bottombar { padding: 40px 12px max(10px, env(safe-area-inset-bottom)); gap: 7px; }
-  .game-bottombar .btn-lg { padding: 11px; font-size: 1.05rem; }
-  .game-bottombar .btn { padding: 10px 16px; }
-  .game-topbar { padding-bottom: 24px; }
+  .game-bottombar { padding: 26px 12px max(8px, env(safe-area-inset-bottom)); gap: 7px; }
+  .cbtn { width: 48px; height: 48px; font-size: 1.35rem; }
+  .cbtn-lg { width: 56px; height: 56px; font-size: 1.55rem; }
+  .cbtn-sm { width: 40px; height: 40px; }
+  .game-topbar { padding-bottom: 20px; }
 }
