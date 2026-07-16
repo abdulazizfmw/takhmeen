@@ -8,6 +8,28 @@
   var IMG_V = CFG.IMG_VERSION || 1; // لكسر كاش Cloudflare عند استبدال محتوى صورة بنفس الاسم
   var REDUCE = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  /* ============================================================
+     ===== إبقاء الشاشة مضاءة أثناء اللعب (Wake Lock) =====
+     ============================================================ */
+  var wakeLock = null;
+  var wantWakeLock = false; // هل نحن في شاشة اللعب (لإعادة الطلب بعد رجوع التبويب)
+
+  async function requestWakeLock() {
+    if (!("wakeLock" in navigator)) return;
+    try {
+      wakeLock = await navigator.wakeLock.request("screen");
+      wakeLock.addEventListener("release", function () { wakeLock = null; });
+    } catch (e) { wakeLock = null; }
+  }
+
+  function releaseWakeLock() {
+    if (wakeLock) { wakeLock.release().catch(function () {}); wakeLock = null; }
+  }
+
+  document.addEventListener("visibilitychange", function () {
+    if (wantWakeLock && document.visibilityState === "visible") requestWakeLock();
+  });
+
   // ===== عناصر الصفحة =====
   var els = {
     catScreen: document.getElementById("category-screen"),
@@ -259,6 +281,8 @@
     renderHUD();
     showScreen(els.gameScreen);
     nextImage();
+    wantWakeLock = true;
+    requestWakeLock();
   }
 
   /* ============================================================
@@ -555,7 +579,12 @@
   els.nextBtn.addEventListener("click", nextImage);
   els.resetBtn.addEventListener("click", resetSession);
   els.retry.addEventListener("click", nextImage);
-  els.back.addEventListener("click", function () { renderHUD(); showScreen(els.catScreen); });
+  els.back.addEventListener("click", function () {
+    renderHUD();
+    showScreen(els.catScreen);
+    wantWakeLock = false;
+    releaseWakeLock();
+  });
   els.trophyBtn.addEventListener("click", openBadges);
   els.badgesClose.addEventListener("click", closeBadges);
   els.resetProgress.addEventListener("click", resetAllProgress);
